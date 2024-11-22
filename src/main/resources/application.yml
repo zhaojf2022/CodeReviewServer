@@ -1,0 +1,49 @@
+application:
+    config:
+        tokenExpireDays: 2
+    datasource-proxy-enabled: true
+    log-batch-interval: 10000
+    log-batch-size: 500
+    server:
+        version: '@project.version@'
+server:
+    port: 23560
+spring:
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        hikari:
+            idle-timeout: 600000
+            max-life-time: 1800000
+            maximum-pool-size: 20
+            minimum-idle: 10
+        type: com.zaxxer.hikari.HikariDataSource
+    jackson:
+        date-format: yyyy-MM-dd HH:mm:ss
+        deserialization:
+            fail-on-unknown-properties: false
+        mapper:
+            accept-case-insensitive-properties: true
+        serialization:
+            fail-on-empty-beans: false
+            fail-on-unwrapped-type-identifiers: false
+        time-zone: GMT+8
+    jpa:
+        generate-ddl: true
+        hibernate:
+            naming:
+                implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        open-in-view: false
+        properties:
+            hibernate:
+                enable_lazy_load_no_trans: true
+                hbm2ddl:
+                    auto: update
+    mvc:
+        pathmatch:
+            matching-strategy: ant_path_matcher
+    profiles:
+        active: DEV
+    servlet:
+        multipart:
+            max-file-size: 50MB
+            max-request-size: 50MB

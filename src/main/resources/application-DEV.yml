@@ -1,0 +1,17 @@
+application:
+  notice:
+    webhook:
+      url: http://127.0.0.1:23560/client/system/mockNotice
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      username: cruser
+      password: mongopwd
+      database: code_review
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/code_review?useUnicode=true&characterEncoding=UTF-8&rewriteBatchedStatements=true&serverTimezone=Asia/Shanghai
+    username: cruser
+    password: J3akU+b3FAQ%

@@ -7,6 +7,7 @@ import com.veezean.codereview.server.model.UserProjectBindReqBody;
 import com.veezean.codereview.server.model.UserShortInfo;
 import com.veezean.codereview.server.service.ProjectService;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.xmlbeans.impl.xb.xsdschema.Public;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
@@ -22,8 +23,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/server/project")
 public class ServerProjectCollector {
+    private final ProjectService projectService;
+
     @Autowired
-    private ProjectService projectService;
+    public ServerProjectCollector(ProjectService projectService) {
+        this.projectService = projectService;
+    }
 
     @PostMapping("/createProject")
     public Response<String> createProject(@RequestBody SaveProjectReqBody reqBody) {
